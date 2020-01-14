@@ -18,10 +18,8 @@ def webhook():
     
     elif '/add' in msg['text'].lower():
         #collect info into list and add to db
-    
         ls = parse_text("/add ",msg['text'].lower())
         db = db_connect()
-    
         for food in ls:
             add_list(db,food)
     
