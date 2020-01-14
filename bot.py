@@ -23,7 +23,7 @@ def webhook():
         for food in ls:
             add_list(db,food)
     
-        reply('ok')
+        reply('ok, added!')
     
     elif '/remove' in msg['text'].lower():
         #collect info into list and remove from db
@@ -32,7 +32,7 @@ def webhook():
         for food in ls:
             del_list(db,food)
     
-        reply('ok')
+        reply('ok, removed!')
     
     return "ok", 200
 
@@ -65,4 +65,8 @@ def show_list(db):
     txt = ''
     for docs in result:
         txt += docs['item'] + '\n'
-    return txt
+
+    if not txt:
+        return "List is empty!"
+    else:
+        return txt
