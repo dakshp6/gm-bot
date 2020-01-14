@@ -15,7 +15,7 @@ def webhook():
 
         db = src.db_connect()
 
-        src.reply(show_list(db))
+        src.reply(src.show_list(db))
     
     elif '/add' in msg['text'].lower():
 
