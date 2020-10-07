@@ -1,6 +1,7 @@
 import requests
 import os
 from pymongo import MongoClient
+import datetime
 
 
 def reply(msg):
@@ -37,3 +38,10 @@ def show_list(db):
         return "List is empty!"
     else:
         return txt
+
+
+def getToday():
+
+    today = datetime.date.today()
+
+    return today.day

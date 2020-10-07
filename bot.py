@@ -9,6 +9,10 @@ def webhook():
 
     msg = request.get_json()
 
+    if getToday == 1:
+        src.reply('It\'s rent day fellas!')
+
+
     if '/list' in msg['text'].lower():
 
         #lists out db list
@@ -16,7 +20,7 @@ def webhook():
         db = src.db_connect()
 
         src.reply(src.show_list(db))
-    
+
     elif '/add' in msg['text'].lower():
 
         #collect info into list and add to db
@@ -27,9 +31,9 @@ def webhook():
 
         for food in ls:
             src.add_list(db,food)
-    
+
         src.reply('ok, added!')
-    
+
     elif '/remove' in msg['text'].lower():
 
         #collect info into list and remove from db
@@ -40,7 +44,7 @@ def webhook():
 
         for food in ls:
             src.del_list(db,food)
-    
+
         src.reply('ok, removed!')
-    
+
     return "ok", 200
