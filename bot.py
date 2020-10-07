@@ -9,7 +9,7 @@ def webhook():
 
     msg = request.get_json()
 
-    if getToday == 1:
+    if src.getToday() == 1:
         src.reply('It\'s rent day fellas!')
 
 
