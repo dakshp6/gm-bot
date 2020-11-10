@@ -10,7 +10,7 @@ app = Flask(__name__)
 def webhook():
 
     msg = request.get_json()
-
+    global lock
     if (src.getToday() == 9) and lock:
         src.reply('It\'s rent day fellas!')
         global lock
