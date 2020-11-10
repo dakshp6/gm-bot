@@ -1,7 +1,7 @@
 from flask import Flask,request
 import src
 
-global lock = True
+lock = True
 
 app = Flask(__name__)
 
@@ -13,10 +13,12 @@ def webhook():
 
     if (src.getToday() == 9) and lock:
         src.reply('It\'s rent day fellas!')
-        global lock = False
+        global lock
+        lock = False
 
     elif src.getToday() != 9:
-        global lock = True
+        global lock
+        lock = True
 
     if '/list' in msg['text'].lower():
 
