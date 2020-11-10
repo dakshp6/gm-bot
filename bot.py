@@ -15,7 +15,7 @@ def webhook():
         src.reply('It\'s rent day fellas!')
         lock = False
 
-    else src.getToday() != 9:
+    else:
         lock = True
 
     if '/list' in msg['text'].lower():
