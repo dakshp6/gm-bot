@@ -15,10 +15,10 @@ def webhook():
         src.reply('It\'s rent day fellas!')
         lock = False
 
-    elif src.getToday() != 9:
+    else src.getToday() != 9:
         lock = True
 
-    elif '/list' in msg['text'].lower():
+    if '/list' in msg['text'].lower():
 
         #lists out db list
 
