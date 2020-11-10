@@ -1,7 +1,7 @@
 from flask import Flask,request
 import src
 
-lock = true
+lock = True
 
 app = Flask(__name__)
 
@@ -11,12 +11,12 @@ def webhook():
 
     msg = request.get_json()
 
-    if src.getToday() == 1 and lock:
+    if src.getToday() == 9 and lock:
         src.reply('It\'s rent day fellas!')
-        lock = false
+        lock = False
 
-    elif src.getToday() != 1 and not lock:
-        lock=true
+    elif src.getToday() != 9 and not lock:
+        lock=True
 
     elif '/list' in msg['text'].lower():
 
