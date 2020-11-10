@@ -2,7 +2,7 @@ import requests
 import os
 from pymongo import MongoClient
 import datetime
-import geocoder
+
 
 def reply(msg):
     requests.post('https://api.groupme.com/v3/bots/post?bot_id='+os.getenv('GROUPME_BOT_ID')+'&text='+msg)
