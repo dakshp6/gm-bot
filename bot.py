@@ -11,8 +11,8 @@ def webhook():
 
     msg = request.get_json()
 
+    if (src.getToday() == 9) and lock:
         src.reply('It\'s rent day fellas!')
-        if (src.getToday() == 9) and lock:
         lock = False
 
     elif src.getToday() != 9:
