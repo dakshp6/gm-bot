@@ -12,11 +12,11 @@ def webhook():
     msg = request.get_json()
     global lock
 
-    if (src.getToday() == 10) and lock:
+    if (src.getToday() == 1) and lock:
         src.reply('It\'s rent day fellas!')
         lock = False
 
-    elif src.getToday() != 10:
+    elif src.getToday() != 1:
         lock = True
 
     if '/list' in msg['text'].lower():
