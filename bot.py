@@ -16,9 +16,7 @@ def webhook():
         print("in if")
         src.reply('It\'s rent day fellas!')
         lock = False
-
-    print("after if")
-
+        
     elif src.getToday() != 9:
         print("after if")
         lock = True
