@@ -13,6 +13,7 @@ def webhook():
     global lock
     print("before if")
     print(src.getToday())
+    print(src.loc())
     if (src.getToday() == 9) and lock:
         print("in if")
         src.reply('It\'s rent day fellas!')
