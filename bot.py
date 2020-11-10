@@ -11,15 +11,13 @@ def webhook():
 
     msg = request.get_json()
     global lock
-    print("before if")
-    print(src.getToday())
-    print(src.loc())
-    if (src.getToday() == 9) and lock:
+
+    if (src.getToday() == 10) and lock:
         print("in if")
         src.reply('It\'s rent day fellas!')
         lock = False
 
-    elif src.getToday() != 9:
+    elif src.getToday() != 10:
         print("after if")
         lock = True
 

@@ -39,11 +39,6 @@ def show_list(db):
     else:
         return txt
 
-def loc():
-    myloc = geocoder.ip('me')
-    return myloc.latlng
-
-
 def getToday():
 
     today = datetime.date.today()
