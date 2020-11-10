@@ -13,12 +13,10 @@ def webhook():
     global lock
 
     if (src.getToday() == 10) and lock:
-        print("in if")
         src.reply('It\'s rent day fellas!')
         lock = False
 
     elif src.getToday() != 10:
-        print("after if")
         lock = True
 
     if '/list' in msg['text'].lower():
