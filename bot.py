@@ -1,6 +1,8 @@
 from flask import Flask,request
 import src
 
+lock = true
+
 app = Flask(__name__)
 
 @app.route('/',methods = ['POST'])
@@ -9,11 +11,14 @@ def webhook():
 
     msg = request.get_json()
 
-    if src.getToday() == 1:
+    if src.getToday() == 1 and lock:
         src.reply('It\'s rent day fellas!')
+        lock = false
 
+    elif src.getToday() != 1 and !lock:
+        lock=true
 
-    if '/list' in msg['text'].lower():
+    elif '/list' in msg['text'].lower():
 
         #lists out db list
 
