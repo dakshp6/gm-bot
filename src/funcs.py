@@ -39,8 +39,14 @@ def show_list(db):
     else:
         return txt
 
-def getToday():
+def getDate():
 
     today = datetime.date.today()
 
-    return today.day
+    today = datetime.date.today()
+
+    month = int(today.month)+1
+
+    next_date = datetime.datetime(2021, month, 1)
+
+    return next_date

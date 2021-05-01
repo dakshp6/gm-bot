@@ -1,23 +1,21 @@
 from flask import Flask,request
 import src
+import datetime
 
-lock = True
 
 app = Flask(__name__)
 
+scheduler = BackgroundScheduler({'apscheduler.timezone': 'America/New_York'})
+scheduler.start()
+
+
 @app.route('/',methods = ['POST'])
+
+job = scheduler.add_job(src.reply, trigger='date', run_date = src.getDate(),args=['It\'s rent day fellas!'])
 
 def webhook():
 
     msg = request.get_json()
-    global lock
-
-    if (src.getToday() == 1) and lock:
-        src.reply('It\'s rent day fellas!')
-        lock = False
-
-    elif src.getToday() != 1:
-        lock = True
 
     if '/list' in msg['text'].lower():
 
