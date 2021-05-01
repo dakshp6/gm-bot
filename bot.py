@@ -10,10 +10,10 @@ scheduler.start()
 
 @app.route('/',methods = ['POST'])
 
-def webhook():
-
     txt = 'It\'s rent day fellas!'
-    job = scheduler.add_job(src.reply(txt), trigger='date', run_date = src.getDate(), args = [])
+    job = scheduler.add_job(src.reply, trigger='date', run_date = src.getDate(), args = [txt])
+
+def webhook():
 
     msg = request.get_json()
 
