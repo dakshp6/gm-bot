@@ -10,12 +10,12 @@ scheduler.start()
 
 @app.route('/',methods = ['POST'])
 
-txt = 'It\'s rent day fellas!'
-job = scheduler.add_job(src.reply, trigger='date', run_date = src.getDate(), args = txt)
-
 def webhook():
 
     msg = request.get_json()
+
+    txt = "It\'s rent day fellas!"
+    job = scheduler.add_job(src.reply, trigger='date', run_date = src.getDate(), args = [txt])
 
     if '/list' in msg['text'].lower():
 
