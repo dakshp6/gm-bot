@@ -1,7 +1,7 @@
 from flask import Flask,request
 import src
 import datetime
-
+from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
 
@@ -14,8 +14,7 @@ def webhook():
 
     msg = request.get_json()
 
-    txt = "It\'s rent day fellas!"
-    job = scheduler.add_job(src.reply, trigger='date', run_date = src.getDate(), args = [txt])
+    job = scheduler.add_job(src.reply, trigger='date', run_date = src.getDate(), args = ["It\'s rent day fellas!"])
 
     if '/list' in msg['text'].lower():
 
