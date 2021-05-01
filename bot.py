@@ -8,13 +8,12 @@ app = Flask(__name__)
 scheduler = BackgroundScheduler({'apscheduler.timezone': 'America/New_York'})
 scheduler.start()
 
-
 @app.route('/',methods = ['POST'])
 
-txt = 'It\'s rent day fellas!'
-job = scheduler.add_job(src.reply, trigger='date', run_date = src.getDate(),args=[txt])
-
 def webhook():
+
+    txt = 'It\'s rent day fellas!'
+    job = scheduler.add_job(src.reply(txt), trigger='date', run_date = src.getDate(), args = [])
 
     msg = request.get_json()
 
